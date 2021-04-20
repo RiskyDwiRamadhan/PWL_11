@@ -43,7 +43,7 @@ class AuthController extends Controller
         $user = User::where('email', $validated['email'])->first();
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        return $this-apiSuccess([
+        return $this->apiSuccess([
             'token' => $token,
             'token_type' => 'Bearer',
             'user' => $user,
