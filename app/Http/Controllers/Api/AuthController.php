@@ -1,10 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Models\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
+use App\Traits\ApiResponse;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -28,6 +35,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request){
         $validated = $request->validated();
+        
         if(!Auth::attempt($validated)){
             return $this->apiError('Credentials not match', Response::HTTP_UNAUTHORIZED);            
         }
