@@ -81,6 +81,6 @@ class TodoController extends Controller
             $todo->delete();
             return $this->apiSuccess($todo);
         }
-        return $this->apiErrors('Unauthorized', Response::HTTP_UNAUTHORIZED);
+        return $this->apiErrors('Unauthorized', Response::HTTP_UNAUTHORIZED);        
     }
 }
