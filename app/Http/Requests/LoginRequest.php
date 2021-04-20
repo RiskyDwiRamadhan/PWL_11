@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 class LoginRequest extends ApiRequest
 {
     /**
@@ -25,7 +23,7 @@ class LoginRequest extends ApiRequest
     {
         return [
             'email' => 'required|string|email',
-            'password' => 'required|string|min:8'
+            'password' => 'required|string|min:8',
         ];
     }
 }
